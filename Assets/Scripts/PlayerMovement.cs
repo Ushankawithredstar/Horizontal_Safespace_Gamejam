@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveForce = 1.5f;
-    [SerializeField] private float forceJump = 11f;
+    private float forceJump = 11f;
 
     [SerializeField] private Rigidbody2D rb;
 
@@ -15,22 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float movementX;
 
-    private readonly float baseHealth = 3f;
-    private static float health;
-    public static float Health 
-    { 
-        get { return health; } 
-        set { health = value; } 
-    }
-
     private void Awake()
     {
-        rb = rb.GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        health = baseHealth;
+        rb.GetComponent<Rigidbody2D>();
     }
 
     private void Update()

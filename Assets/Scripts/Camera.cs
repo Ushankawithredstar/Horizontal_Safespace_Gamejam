@@ -2,20 +2,17 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    [SerializeField]private Transform player;
+    [SerializeField] private Transform player;
     private Vector3 tempPos;
 
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
 
     // Start is called before the first frame update
-    private void Awake()
-    {
-        player = GameObject.FindWithTag("Player").transform;
-    }
+    private void Awake() => player = GameObject.FindWithTag("Player").transform;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (player == null)
             return;
