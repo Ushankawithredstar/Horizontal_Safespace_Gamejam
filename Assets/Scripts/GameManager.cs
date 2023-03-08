@@ -55,5 +55,4 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("MainMenu");
     }
-
 }
