@@ -1,16 +1,28 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //Tags.
+    private readonly string safespace = "Safespace";
+    private readonly int damage = 1;
+
     [SerializeField] private float speed = 30f;
-    private int damage = 1;
+
+    private readonly float destroyTimeSec = 4f;
 
     [SerializeField] private Rigidbody2D bulletBody;
 
-    private void Start()
+    private void Awake()
     {
         bulletBody.GetComponent<Rigidbody2D>();
-        bulletBody.velocity = transform.right * speed;
+    }
+
+    private void Start()
+    {
+        bulletBody.velocity = speed * transform.right;
+        Destroy(gameObject, destroyTimeSec);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
@@ -19,5 +31,11 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo.TryGetComponent<Enemy>(out var enemy))
             enemy.TakeDamage(damage);
+
+        if (hitInfo.gameObject.CompareTag(safespace))
+        {
+            var safespace = GetComponent<Transform>();
+            Physics2D.IgnoreCollision(safespace.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 }

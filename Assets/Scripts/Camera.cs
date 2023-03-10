@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    /*
+     * 
+     *  WHY DOES IT WORK PROPERLY?
+     * 
+     */
+
+
     [SerializeField] private Transform player;
     private Vector3 tempPos;
 

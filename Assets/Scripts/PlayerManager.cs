@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //private readonly string wall = "Wall";
-
     //Tags.
     private readonly string safespace = "Safespace";
-    //private readonly string enemy = "Enemy";
+    //private readonly string wall = "Wall";
 
-    [SerializeField] private static int health = 3;
+    private static int health = 3;
     public static int Health
     { 
         get { return health; } 
-        set {  health = value; } 
+        set { health = value; } 
     }
+
+    private float Speed { get; set; }
 
     private void Update()
     {

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(DestroyEnemy), 6f);
+        Destroy(gameObject, 6f);
     }
 
     // Update is called once per frame
@@ -33,11 +33,6 @@ public class Enemy : MonoBehaviour
     private void MoveEnemy()
     {
         transform.Translate(speed * Time.deltaTime * Vector2.left);
-    }
-    
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

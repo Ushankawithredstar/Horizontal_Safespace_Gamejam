@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    private readonly float[] YPosList = { -4.5f, -3f, 3f, 4.5f };
+
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] private GameObject enemySpawner;
 
-    [SerializeField] private float minTimeSeconds = 1.5f;
-    [SerializeField] private float maxTimeSeconds = 5.5f;
+    [SerializeField] private float minTimeSeconds = 0.3f;
+    [SerializeField] private float maxTimeSeconds = 1.5f;
 
     private void Start()
     {
@@ -19,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(enemyPrefab, enemySpawner.transform.position, enemySpawner.transform.rotation);
+            var offset = new Vector3(0, YPosList[Random.Range(0, YPosList.Length)], 0);
+            Instantiate(enemyPrefab, enemySpawner.transform.position + offset, enemySpawner.transform.rotation);
             yield return new WaitForSeconds(Random.Range(minTimeSeconds, maxTimeSeconds));
         }
     }
