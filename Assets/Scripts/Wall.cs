@@ -3,7 +3,7 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     [SerializeField] private float moveForce = 1.5f;
-    private readonly float movementX = 1f;
+    [SerializeField] private float movementX = 1f;
 
     private void FixedUpdate()
     {

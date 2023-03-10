@@ -2,19 +2,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //Tags.
+    private readonly string player = "Player";
 
-    private int health = 1;
+    [SerializeField] private int damage;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int speed;
+
+    [SerializeField] private int health;
+
+    private void Start()
     {
-        
+        Invoke(nameof(DestroyEnemy), 6f);
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        MoveEnemy();
     }
 
     public void TakeDamage(int damage)
@@ -23,5 +28,24 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
             Destroy(gameObject);
+    }
+
+    private void MoveEnemy()
+    {
+        transform.Translate(speed * Time.deltaTime * Vector2.left);
+    }
+    
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(player))
+        {
+            PlayerManager.Health -= damage;
+            Destroy(gameObject);
+        }
     }
 }

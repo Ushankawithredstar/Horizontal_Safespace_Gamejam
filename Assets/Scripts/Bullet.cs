@@ -5,11 +5,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 30f;
     private int damage = 1;
 
-    private Rigidbody2D bulletBody;
+    [SerializeField] private Rigidbody2D bulletBody;
 
-    private Collider2D collision;
-
-    private void Awake()
+    private void Start()
     {
         bulletBody.GetComponent<Rigidbody2D>();
         bulletBody.velocity = transform.right * speed;
@@ -22,5 +20,4 @@ public class Bullet : MonoBehaviour
         if (hitInfo.TryGetComponent<Enemy>(out var enemy))
             enemy.TakeDamage(damage);
     }
-
 }

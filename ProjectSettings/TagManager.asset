@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Ground
   - Abyss
+  - Safespace
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -43,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1418601117
+    locked: 0
+  - name: Foreground
+    uniqueID: 3792413623
     locked: 0

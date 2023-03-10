@@ -2,46 +2,39 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveForce = 1.5f;
-    private readonly float forceJump = 11f; //Do not change.
 
-    private Rigidbody2D rb;
+    private Vector2 targetPos;
 
-    private bool isGrounded = true;
-    private readonly string ground = "Ground";
+    [SerializeField] private float yIncrement;
 
-    private float movementX;
+    [SerializeField] private float speed;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    //private readonly float minHeight = 5f;
+    //private readonly float maxHeight = -5f;
+
+    private int currentY = 0;
+    private int maxY = 3;
+    private int minY = -3;
 
     private void Update()
     {
         MovePlayer();
-        PlayerJump();
     }
 
     private void MovePlayer()
     {
-        movementX = Input.GetAxisRaw("Horizontal");
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed);
 
-        transform.position += moveForce * Time.deltaTime * new Vector3(movementX, 0f, 0f);
-    }
-
-    private void PlayerJump()
-    {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY)
         {
-            isGrounded = false;
-            rb.AddForce(new Vector2(0f, forceJump), ForceMode2D.Impulse);
+            targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
+            currentY++;
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag(ground))
-            isGrounded = true;
+        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY)
+        {
+            targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
+            currentY--;
+        }
     }
 }
