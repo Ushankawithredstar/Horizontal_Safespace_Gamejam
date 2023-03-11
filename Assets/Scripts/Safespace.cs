@@ -10,7 +10,7 @@ public class Safespace : MonoBehaviour
     [SerializeField] private int minSec;
     [SerializeField] private int maxSec;
 
-    private readonly int playerMaxHealh = 3;
+    private readonly int playerMaxHealth = 3;
 
     private bool isInSafespace = false;
 
@@ -38,7 +38,7 @@ public class Safespace : MonoBehaviour
     //TODO:
     private IEnumerator HealPlayer() 
     {
-        for (int i = PlayerManager.Health; i < playerMaxHealh; i++)
+        for (int i = PlayerManager.Health; i < playerMaxHealth; i++)
         {
             PlayerManager.Health++;
 

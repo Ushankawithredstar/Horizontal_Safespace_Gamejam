@@ -6,9 +6,7 @@ public class Enemy : MonoBehaviour
     private readonly string player = "Player";
 
     [SerializeField] private int damage;
-
     [SerializeField] private int speed;
-
     [SerializeField] private int health;
 
     private void Start()
@@ -42,5 +40,10 @@ public class Enemy : MonoBehaviour
             PlayerManager.Health -= damage;
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Score.IncreaseScore();
     }
 }

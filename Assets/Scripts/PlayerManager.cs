@@ -6,18 +6,16 @@ public class PlayerManager : MonoBehaviour
     private readonly string safespace = "Safespace";
     //private readonly string wall = "Wall";
 
-    private static int health = 3;
+    private static int _health = 3;
     public static int Health
     { 
-        get { return health; } 
-        set { health = value; } 
+        get { return _health; } 
+        set { _health = value; } 
     }
-
-    private float Speed { get; set; }
 
     private void Update()
     {
-        if (health <= 0)
+        if (_health <= 0)
             Destroy(gameObject);
     }
 

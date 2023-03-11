@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     //private readonly float maxHeight = -5f;
 
     private int currentY = 0;
-    private int maxY = 3;
-    private int minY = -3;
+    private readonly int maxY = 3;
+    private readonly int minY = -3;
 
     private void Update()
     {

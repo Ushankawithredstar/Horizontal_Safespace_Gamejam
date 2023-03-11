@@ -1,13 +1,11 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     //Tags.
     private readonly string safespace = "Safespace";
-    private readonly int damage = 1;
 
+    private readonly int damage = 1;
     [SerializeField] private float speed = 30f;
 
     private readonly float destroyTimeSec = 4f;
