@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        //I'm not sure if I should use Time.deltaTime here.
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.W) && currentY < maxY)

@@ -4,7 +4,7 @@ public class Obstacle : MonoBehaviour
 {
     [SerializeField] private int speed;
 
-    private void Update()
+    private void Start()
     {
         Destroy(gameObject, 6f);
     }

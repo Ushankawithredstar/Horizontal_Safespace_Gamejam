@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+
+    /*
+     * UNUSED.
+     */
     [SerializeField] private float speed;
 
     // Start is called before the first frame update
