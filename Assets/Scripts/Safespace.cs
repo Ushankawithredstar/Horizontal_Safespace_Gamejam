@@ -6,7 +6,6 @@ public class Safespace : MonoBehaviour
     //Tags.
     private readonly string player = "Player";
 
-
     [SerializeField] private int minSec;
     [SerializeField] private int maxSec;
 
@@ -20,13 +19,13 @@ public class Safespace : MonoBehaviour
         //Health when the characters enters the "safespace".
         if (isInSafespace == true && isHealing == false && PlayerManager.Health < playerMaxHealth)
         {
-            StartCoroutine(HealPlayer());
+            StartCoroutine(HealPlayer(1f));
             isHealing = true;
         }
         //Stops healing when the characters leaves the "safespace".
         if (isInSafespace == false && isHealing == true || PlayerManager.Health == playerMaxHealth)
         {
-            StopCoroutine(HealPlayer());
+            StopCoroutine(HealPlayer(0f));
             isHealing = false;
         }
     }
@@ -43,8 +42,9 @@ public class Safespace : MonoBehaviour
             isInSafespace = false;
     }
 
-    private IEnumerator HealPlayer() 
+    private IEnumerator HealPlayer(float delay = 0f) 
     {
+        yield return new WaitForSeconds(delay);
         for (int i = PlayerManager.Health; i < playerMaxHealth; i++)
         {
             PlayerManager.Health++;

@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    /*
+     * UNUSED.
+     */
+
+
     //[SerializeField] private float moveForce = 1.5f;
     //[SerializeField] private float movementX = 1f;
 

@@ -3,9 +3,7 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     /*
-     * 
-     *  All of this code is unnecessary.
-     * 
+     *  UNUSED.
      */
 
 

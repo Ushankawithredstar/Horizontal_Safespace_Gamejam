@@ -19,5 +19,8 @@ public class FirePoint : MonoBehaviour
         }
     }
 
-    private void ShootCD() => onCooldown = false;
+    private void ShootCD()
+    {
+        onCooldown = false;
+    }
 }

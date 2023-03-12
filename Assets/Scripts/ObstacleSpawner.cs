@@ -17,18 +17,12 @@ public class ObstacleSpawner : MonoBehaviour
     private void Start()
     {
         //Activates the spawner after a delay.
-        Invoke(nameof(ActivateSpawner), activationDelay);
-        gameObject.SetActive(false);
-        StartCoroutine(SpawnObstacles());
+        StartCoroutine(SpawnObstacles(activationDelay));
     }
 
-    private void ActivateSpawner()
+    private IEnumerator SpawnObstacles(float delay = 0f)
     {
-        gameObject.SetActive(true);
-    }
-
-    public IEnumerator SpawnObstacles()
-    {
+        yield return new WaitForSeconds(delay);
         while (true)
         {
             var offset = new Vector3(0, yPos[Random.Range(0, yPos.Length)], 0);

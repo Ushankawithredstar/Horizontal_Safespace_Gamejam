@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 6f);
+        Destroy(gameObject, 4.5f);
     }
 
     // Update is called once per frame
@@ -25,7 +25,10 @@ public class Enemy : MonoBehaviour
         health -= damage;
 
         if (health <= 0)
+        {
+            GameplayUIController.ScoreCount++;
             Destroy(gameObject);
+        }
     }
 
     private void MoveEnemy()
@@ -40,11 +43,5 @@ public class Enemy : MonoBehaviour
             PlayerManager.Health -= damage;
             Destroy(gameObject);
         }
-    }
-
-    private void OnDestroy()
-    {
-        //Doesn't work as intended.
-        Score.IncreaseScore();
     }
 }

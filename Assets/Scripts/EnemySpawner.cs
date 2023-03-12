@@ -16,17 +16,13 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         //Activates the spawner after a delay.
-        Invoke(nameof(ActivateSpawner), activationDelay);
-        gameObject.SetActive(false);
-        StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnEnemies(activationDelay));
     }
 
-    private void ActivateSpawner()
+    private IEnumerator SpawnEnemies(float delay = 0f)
     {
-        gameObject.SetActive(true);
-    }
-    private IEnumerator SpawnEnemies()
-    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Started");
         //Chooses a random Y position from an array and spawns an enemy. 
         while (true)
         {

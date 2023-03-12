@@ -25,10 +25,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Destroy(gameObject);
 
         if (hitInfo.TryGetComponent<Enemy>(out var enemy))
+        {
             enemy.TakeDamage(damage);
+            Destroy(gameObject);
+        }
 
         //Ignores the "Safespace" collider.
         if (hitInfo.gameObject.CompareTag(safespace))

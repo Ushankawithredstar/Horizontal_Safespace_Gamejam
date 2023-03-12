@@ -10,6 +10,7 @@ TagManager:
   - Safespace
   - Enemy
   - Obstacle
+  - Platform
   layers:
   - Default
   - TransparentFX

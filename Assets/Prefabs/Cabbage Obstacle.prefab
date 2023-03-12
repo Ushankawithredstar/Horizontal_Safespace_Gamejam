@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5629749826542546723}
   - component: {fileID: 5629749826542546720}
   - component: {fileID: 9139659407416852230}
-  - component: {fileID: 9139659407416852233}
+  - component: {fileID: 8749483841759580032}
   - component: {fileID: 2897481573434521346}
   m_Layer: 0
   m_Name: Cabbage Obstacle
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &9139659407416852233
+--- !u!95 &8749483841759580032
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ Animator:
   m_GameObject: {fileID: 5629749826542546721}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a8697234cf3208f42b99e38dbb1a59aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7751eac31ce41e24cbdfe2208ed3cc0c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,4 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03197961ba5758545a33e988a5ae0a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6

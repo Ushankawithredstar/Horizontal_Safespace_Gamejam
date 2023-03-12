@@ -23,15 +23,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY)
+        if (Input.GetKeyDown(KeyCode.W) && currentY < maxY)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
             currentY++;
         }
 
-        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY)
+        else if(Input.GetKeyDown(KeyCode.S) && currentY > minY)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
             currentY--;
