@@ -4,8 +4,10 @@ public class PlayerManager : MonoBehaviour
 {
     //Tags.
     private readonly string safespace = "Safespace";
+    private readonly string obstacle = "Obstacle";
     //private readonly string wall = "Wall";
 
+    //Getters and setters are probably unnecessary.
     private static int _health = 3;
     public static int Health
     { 
@@ -26,5 +28,8 @@ public class PlayerManager : MonoBehaviour
             var safespace = GetComponent<Transform>();
             Physics2D.IgnoreCollision(safespace.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
+
+        if (collision.gameObject.CompareTag(obstacle))
+            Destroy(gameObject);
     }
 }

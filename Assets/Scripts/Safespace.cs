@@ -12,17 +12,25 @@ public class Safespace : MonoBehaviour
 
     private readonly int playerMaxHealth = 3;
 
+    private bool isHealing = false;
     private bool isInSafespace = false;
 
     private void Update()
     {
-        if (isInSafespace == true)
+        //Health when the characters enters the "safespace".
+        if (isInSafespace == true && isHealing == false && PlayerManager.Health < playerMaxHealth)
+        {
             StartCoroutine(HealPlayer());
-        if (isInSafespace == false)
+            isHealing = true;
+        }
+        //Stops healing when the characters leaves the "safespace".
+        if (isInSafespace == false && isHealing == true || PlayerManager.Health == playerMaxHealth)
+        {
             StopCoroutine(HealPlayer());
+            isHealing = false;
+        }
     }
 
-    //TODO:
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(player))
@@ -35,13 +43,11 @@ public class Safespace : MonoBehaviour
             isInSafespace = false;
     }
 
-    //TODO:
     private IEnumerator HealPlayer() 
     {
         for (int i = PlayerManager.Health; i < playerMaxHealth; i++)
         {
             PlayerManager.Health++;
-
             yield return new WaitForSeconds(Random.Range(minSec, maxSec));
         }
     }

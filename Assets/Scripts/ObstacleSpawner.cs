@@ -6,18 +6,28 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject obstacleSpawner;
 
-    [SerializeField] private float minSeconds = 0.5f;
-    [SerializeField] private float maxSeconds = 1.5f;
+    [SerializeField] private float minSeconds = 1.5f;
+    [SerializeField] private float maxSeconds = 3.5f;
+
+    [SerializeField] private float activationDelay = 4f;
 
     private readonly float[] yPos = { -1.5f, 0 ,1.5f };
 
     // Start is called before the first frame update
     private void Start()
     {
+        //Activates the spawner after a delay.
+        Invoke(nameof(ActivateSpawner), activationDelay);
+        gameObject.SetActive(false);
         StartCoroutine(SpawnObstacles());
     }
 
-    private IEnumerator SpawnObstacles()
+    private void ActivateSpawner()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public IEnumerator SpawnObstacles()
     {
         while (true)
         {

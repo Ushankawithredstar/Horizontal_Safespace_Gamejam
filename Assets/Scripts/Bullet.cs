@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
         if (hitInfo.TryGetComponent<Enemy>(out var enemy))
             enemy.TakeDamage(damage);
 
+        //Ignores the "Safespace" collider.
         if (hitInfo.gameObject.CompareTag(safespace))
         {
             var safespace = GetComponent<Transform>();

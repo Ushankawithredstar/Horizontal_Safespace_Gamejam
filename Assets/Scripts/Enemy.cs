@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        //Doesn't work as intended.
         Score.IncreaseScore();
     }
 }

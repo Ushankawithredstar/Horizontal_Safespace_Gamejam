@@ -3,9 +3,14 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] private int speed;
- 
+
+    private void Update()
+    {
+        Destroy(gameObject, 6f);
+    }
+
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         MoveObstacle();
     }
@@ -14,5 +19,4 @@ public class Obstacle : MonoBehaviour
     {
         transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
-
 }

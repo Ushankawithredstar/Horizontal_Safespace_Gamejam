@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //Changes the scene back to Main Menu if the player dies.
         if (player == null && sceneName == "Gameplay" && sceneIsChanging == false)
             StartCoroutine(SceneTransition());
         if (sceneName == "MainMenu")
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SceneTransition()
     {
+        /* It was supposed to be smooth scene transition,
+         * but I failed to implement it. */
         sceneIsChanging = true;
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("MainMenu");

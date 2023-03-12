@@ -4,7 +4,7 @@ public class Camera : MonoBehaviour
 {
     /*
      * 
-     *  WHY DOES IT WORK PROPERLY?
+     *  All of this code is unnecessary.
      * 
      */
 

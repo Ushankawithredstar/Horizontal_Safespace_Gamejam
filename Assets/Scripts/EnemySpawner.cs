@@ -11,13 +11,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minTimeSeconds = 0.3f;
     [SerializeField] private float maxTimeSeconds = 1.5f;
 
+    [SerializeField] private float activationDelay = 1.0f;
+
     private void Start()
     {
+        //Activates the spawner after a delay.
+        Invoke(nameof(ActivateSpawner), activationDelay);
+        gameObject.SetActive(false);
         StartCoroutine(SpawnEnemies());
     }
 
+    private void ActivateSpawner()
+    {
+        gameObject.SetActive(true);
+    }
     private IEnumerator SpawnEnemies()
     {
+        //Chooses a random Y position from an array and spawns an enemy. 
         while (true)
         {
             var offset = new Vector3(0, yPos[Random.Range(0, yPos.Length)], 0);
