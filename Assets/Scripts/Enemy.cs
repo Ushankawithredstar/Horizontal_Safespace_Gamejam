@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //Tags.
-    private readonly string player = "Player";
+    private string player = "Player";
 
     [SerializeField] private int damage;
     [SerializeField] private int speed;

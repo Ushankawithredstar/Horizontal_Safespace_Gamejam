@@ -31,8 +31,18 @@ public class PlayerMovement : MonoBehaviour
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
             currentY++;
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY)
+        {
+            targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
+            currentY++;
+        }
 
-        else if(Input.GetKeyDown(KeyCode.S) && currentY > minY)
+        if(Input.GetKeyDown(KeyCode.S) && currentY > minY)
+        {
+            targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
+            currentY--;
+        }
+        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
             currentY--;

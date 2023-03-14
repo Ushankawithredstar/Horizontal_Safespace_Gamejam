@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private readonly float[] yPos = { -4.5f, -3f, 3f, 4.5f };
+    private float[] yPos = { -4.5f, -3f, 3f, 4.5f };
 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject enemySpawner;
@@ -22,7 +22,6 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnEnemies(float delay = 0f)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("Started");
         //Chooses a random Y position from an array and spawns an enemy. 
         while (true)
         {

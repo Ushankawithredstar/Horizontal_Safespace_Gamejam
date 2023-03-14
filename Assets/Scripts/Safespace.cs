@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Safespace : MonoBehaviour
@@ -8,6 +9,8 @@ public class Safespace : MonoBehaviour
 
     [SerializeField] private int minSec;
     [SerializeField] private int maxSec;
+
+    [SerializeField] private GameObject safespaceController;
 
     private readonly int playerMaxHealth = 3;
 
@@ -39,7 +42,17 @@ public class Safespace : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(player))
+        {
             isInSafespace = false;
+            SafespaceController.isSafespaceDisabled = true;
+            StartCoroutine(DisableSafespace(4f));
+        }
+    }
+
+    private IEnumerator DisableSafespace(float timer)
+    {
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(timer);
     }
 
     private IEnumerator HealPlayer(float delay = 0f) 

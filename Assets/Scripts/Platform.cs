@@ -6,7 +6,8 @@ public class Platform : MonoBehaviour
     /*
      * UNUSED.
      */
-    [SerializeField] private float speed;
+     
+    [SerializeField] private float speed = 5f;
 
     // Start is called before the first frame update
     private void Start()

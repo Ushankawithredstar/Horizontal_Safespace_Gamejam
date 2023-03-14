@@ -12,7 +12,6 @@ public class Wall : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //No longer needed. 
         //transform.position += moveForce * Time.deltaTime * new Vector3(movementX, 0f, 0f);
     }
 
