@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -18,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly int maxY = 3;
     private readonly int minY = -3;
 
-    bool isMovementRestricted = false;
+    private bool isMovementRestricted = false;
 
     private void Update()
     {
@@ -35,31 +34,35 @@ public class PlayerMovement : MonoBehaviour
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
             isMovementRestricted = true;
             currentY++;
+            StartCoroutine(RestrictMovement());
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
             isMovementRestricted = true;
             currentY++;
+            StartCoroutine(RestrictMovement());
         }
 
-        if(Input.GetKeyDown(KeyCode.S) && currentY > minY && isMovementRestricted == false)
+        if (Input.GetKeyDown(KeyCode.S) && currentY > minY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
             isMovementRestricted = true;
             currentY--;
+            StartCoroutine(RestrictMovement());
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
             isMovementRestricted = true;
             currentY--;
+            StartCoroutine(RestrictMovement());
         }
     }
 
     private IEnumerator RestrictMovement()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(.25f);
         isMovementRestricted = false;
     }
 }
