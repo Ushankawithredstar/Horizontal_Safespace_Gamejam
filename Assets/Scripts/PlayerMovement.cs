@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private readonly int maxY = 3;
     private readonly int minY = -3;
 
+    bool isMovementRestricted = false;
+
     private void Update()
     {
         MovePlayer();
@@ -26,26 +30,36 @@ public class PlayerMovement : MonoBehaviour
         //I'm not sure if I should use Time.deltaTime here.
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.W) && currentY < maxY)
+        if (Input.GetKeyDown(KeyCode.W) && currentY < maxY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
+            isMovementRestricted = true;
             currentY++;
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
+            isMovementRestricted = true;
             currentY++;
         }
 
-        if(Input.GetKeyDown(KeyCode.S) && currentY > minY)
+        if(Input.GetKeyDown(KeyCode.S) && currentY > minY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
+            isMovementRestricted = true;
             currentY--;
         }
-        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY)
+        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY && isMovementRestricted == false)
         {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
+            isMovementRestricted = true;
             currentY--;
         }
+    }
+
+    private IEnumerator RestrictMovement()
+    {
+        yield return new WaitForSeconds(0.25f);
+        isMovementRestricted = false;
     }
 }
