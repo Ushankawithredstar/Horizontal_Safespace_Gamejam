@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private readonly int damage = 1;
     [SerializeField] private float speed = 30f;
 
-    private readonly float destroyTimeSec = 4f;
+    [SerializeField] private float destroyTimeSec = 4f;
 
     [SerializeField] private Rigidbody2D bulletBody;
 

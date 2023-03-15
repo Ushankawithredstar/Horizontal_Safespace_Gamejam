@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        MoveEnemy();
+        transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 
     public void TakeDamage(int damage)
@@ -29,11 +29,6 @@ public class Enemy : MonoBehaviour
             GameplayUIController.ScoreCount++;
             Destroy(gameObject);
         }
-    }
-
-    private void MoveEnemy()
-    {
-        transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

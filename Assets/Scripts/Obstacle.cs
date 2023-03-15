@@ -12,11 +12,6 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        MoveObstacle();
-    }
-
-    private void MoveObstacle()
-    {
         transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 }

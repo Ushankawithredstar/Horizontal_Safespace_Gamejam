@@ -1,68 +1,30 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float moveForce = 10f;
 
-    private Vector2 targetPos;
+    [SerializeField] private float maxHeight = 4.5f;
+    [SerializeField] private float minHeight = -4.5f;
+    
+    private float movementY;
 
-    [SerializeField] private float yIncrement;
-
-    [SerializeField] private float speed;
-
-    //private readonly float minHeight = 5f;
-    //private readonly float maxHeight = -5f;
-
-    private int currentY = 0;
-    private readonly int maxY = 3;
-    private readonly int minY = -3;
-
-    private bool isMovementRestricted = false;
-
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
     }
 
     private void MovePlayer()
     {
-        //I'm not sure if I should use Time.deltaTime here.
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.W) && currentY < maxY && isMovementRestricted == false)
+        if (transform.position.y >= minHeight && transform.position.y <= maxHeight)
         {
-            targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
-            isMovementRestricted = true;
-            currentY++;
-            StartCoroutine(RestrictMovement());
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && currentY < maxY && isMovementRestricted == false)
-        {
-            targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
-            isMovementRestricted = true;
-            currentY++;
-            StartCoroutine(RestrictMovement());
+        movementY = Input.GetAxisRaw("Vertical");
+        transform.position += moveForce * Time.deltaTime * new Vector3(0f, movementY, 0f);
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && currentY > minY && isMovementRestricted == false)
-        {
-            targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
-            isMovementRestricted = true;
-            currentY--;
-            StartCoroutine(RestrictMovement());
-        }
-        else if(Input.GetKeyDown(KeyCode.DownArrow) && currentY > minY && isMovementRestricted == false)
-        {
-            targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
-            isMovementRestricted = true;
-            currentY--;
-            StartCoroutine(RestrictMovement());
-        }
-    }
-
-    private IEnumerator RestrictMovement()
-    {
-        yield return new WaitForSeconds(.25f);
-        isMovementRestricted = false;
+        if (transform.position.y <= minHeight)
+            transform.position = new Vector3(0f, minHeight, 0f);
+        else if (transform.position.y >= maxHeight)
+            transform.position = new Vector3(0f, maxHeight, 0f);
     }
 }
