@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSec: 2
   maxSec: 4
-  safespaceController: {fileID: 0}
+  safespaceController: {fileID: 789337450}
 --- !u!61 &789337455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1123481261
 AudioSource:
@@ -1310,9 +1310,6 @@ MonoBehaviour:
   platformSpawner: {fileID: 1189158049}
   minPlatforms: 4
   maxPlatforms: 7
-  yPos:
-  - 2
-  - -2
   delayTime: 1.5
   minSpawnTime: 0
   maxSpawnTime: 0
@@ -1360,7 +1357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316198963
 GameObject:
@@ -1395,7 +1392,7 @@ Transform:
   - {fileID: 419927662}
   - {fileID: 1189158050}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319393759
 GameObject:

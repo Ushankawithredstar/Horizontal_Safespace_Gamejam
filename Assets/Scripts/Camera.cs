@@ -6,20 +6,21 @@ public class Camera : MonoBehaviour
      *  UNUSED.
      */
 
-
     [SerializeField] private Transform player;
     private Vector3 tempPos;
 
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
 
-    // Start is called before the first frame update
-    private void Awake() => player = GameObject.FindWithTag("Player").transform;
+    private void Awake() 
+    {
+        player = GameObject.FindWithTag("Player").transform;
+    }
 
     // Update is called once per frame
-    private void Update()
+    private void LateUpdate()
     {
-        if (player == null)
+        if (player is null)
             return;
 
         tempPos = transform.position;

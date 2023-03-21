@@ -3,9 +3,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //Tags.
-    private readonly string safespace = "Safespace";
+    private string safespace = "Safespace";
 
-    private readonly int damage = 1;
+    private int damage = 1;
     [SerializeField] private float speed = 30f;
 
     [SerializeField] private float destroyTimeSec = 4f;

@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
     /*
-    * DOESN'T WORK AS INTENDED. 
+    * WORK IN PROGRESS. 
+    * UNUSED.
     */
 
     [SerializeField] private GameObject platformPrefab;
