@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private bool isSceneChanging;
 
-    private readonly float transitionTime = 1f;
+    private const float transitionTime = 1f;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //Changes the scene back to Main Menu if the player dies.
-        if (player is null && sceneName == "Gameplay" && isSceneChanging == false)
+        if (player == null && sceneName == "Gameplay" && isSceneChanging == false)
             StartCoroutine(SceneTransition());
         if (sceneName == "MainMenu")
          isSceneChanging = false;

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 512599207057019549}
   - component: {fileID: 512599207057019547}
   - component: {fileID: 4713437571362537957}
-  - component: {fileID: 512599207057019544}
   - component: {fileID: 8417267280641205907}
+  - component: {fileID: 8406752361141562957}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -135,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &512599207057019544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512599207057019548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553cf3d4ec5d31b48a1486d4728bb626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  speed: 7
-  health: 1
 --- !u!95 &8417267280641205907
 Animator:
   serializedVersion: 5
@@ -170,3 +155,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8406752361141562957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512599207057019548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6ee1c7fc5512d4e905d3d4611d50a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 331626591172767332, guid: 68eb6abe9c839eb4c8426add27882d35, type: 3}
+  entityTransform: {fileID: 512599207057019546}
+  maxHealth: 1
+  damage: 1
+  speed: 4
+  baseDestroyTime: 6
+  currentHealth: 0

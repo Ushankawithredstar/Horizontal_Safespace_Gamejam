@@ -1,9 +1,16 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class OldBullet : MonoBehaviour
 {
+
+    //
+    //
+    //  UNUSED.
+    //
+    //
+
     //Tags.
-    private string safespace = "Safespace";
+    // private string safespace = "Safespace";
 
     private int damage = 1;
     [SerializeField] private float speed = 30f;
@@ -28,15 +35,16 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo.TryGetComponent<Enemy>(out var enemy))
         {
-            enemy.TakeDamage(damage);
+            // enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
 
         //Ignores the "Safespace" collider.
-        if (hitInfo.gameObject.CompareTag(safespace))
-        {
-            var safespace = GetComponent<Transform>();
-            Physics2D.IgnoreCollision(safespace.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        }
+        // if (hitInfo.gameObject.CompareTag(safespace))
+        // if (hitInfo.TryGetComponent<Safespace>(out Safespace component))
+        // {
+        //     var safespace = GetComponent<Transform>();
+        //     Physics2D.IgnoreCollision(safespace.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        // }
     }
 }

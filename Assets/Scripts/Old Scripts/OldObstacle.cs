@@ -1,7 +1,13 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class OldObstacle : MonoBehaviour
 {
+    //
+    //
+    //  UNUSED.
+    //
+    //
+
     [SerializeField] private int speed;
 
     private void Start()

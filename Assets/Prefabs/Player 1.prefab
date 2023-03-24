@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3097195146607848129}
   - component: {fileID: 3097195146607848128}
   - component: {fileID: 3097195146607848130}
-  - component: {fileID: 3097195146607848156}
-  - component: {fileID: 7054173246039592514}
   - component: {fileID: 3097195147778746679}
+  - component: {fileID: 2846442365200695239}
+  - component: {fileID: 3097195146607848156}
+  - component: {fileID: 934174062549548318}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -110,32 +111,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &3097195146607848156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097195146607848135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6967957eda51b4fa5261a5bc822fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yIncrement: 1.5
-  speed: 100
---- !u!114 &7054173246039592514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097195146607848135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8a2b9c2ed1ef047b4ed465a8976ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3097195147778746679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +121,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.25705603, y: 0}
@@ -162,6 +137,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84005445, y: 1.1458334}
   m_EdgeRadius: 0
+--- !u!114 &2846442365200695239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097195146607848135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75e966d785964eaa6acbfb8acb591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3097195146607848156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097195146607848135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6967957eda51b4fa5261a5bc822fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 10
+  maxHeight: 4.5
+  minHeight: -4.5
+--- !u!114 &934174062549548318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097195146607848135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6d653a5d2bad4098ae769e9da264e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!1 &7054173245498037089
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +187,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7054173245498037088}
   - component: {fileID: 7054173245498037091}
-  - component: {fileID: 7054173245498037090}
+  - component: {fileID: 8049539690473780068}
+  - component: {fileID: 8472760310433094864}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -247,7 +263,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7054173245498037090
+--- !u!114 &8049539690473780068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,8 +272,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7054173245498037089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa9df835544144bbb3ddfa0c6bd4fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4db75e966d785964eaa6acbfb8acb591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8472760310433094864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054173245498037089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a65663dd2783784387d2e10274fcf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7054173245498037088}
   bulletPrefab: {fileID: 331626591172767332, guid: 68eb6abe9c839eb4c8426add27882d35, type: 3}
+  cooldownTime: 0.45

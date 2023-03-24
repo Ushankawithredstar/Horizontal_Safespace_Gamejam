@@ -26,18 +26,18 @@ public class ObstacleSpawner : MonoBehaviour
         yield return new WaitForSeconds(delay);
         while (true)
         {
-            if (SafespaceController.isSafespaceDisabled)
-            {
-                var offset = new Vector3(0, yPos[Random.Range(0, yPos.Length)], 0);
-                Instantiate(enemy, obstacleSpawner.transform.position + offset, obstacleSpawner.transform.rotation);
-                yield return new WaitForSeconds(Random.Range(minSeconds, maxSeconds));
-            }
-            else
-            {
+            // if (SafespaceController.isSafespaceDisabled)
+            // {
+            //     var offset = new Vector3(0, yPos[Random.Range(0, yPos.Length)], 0);
+            //     Instantiate(enemy, obstacleSpawner.transform.position + offset, obstacleSpawner.transform.rotation);
+            //     yield return new WaitForSeconds(Random.Range(minSeconds, maxSeconds));
+            // }
+            // else
+            // {
                 var offset = new Vector3(0, yPos[Random.Range(0, yPos.Length)], 0);
                 Instantiate(obstacles[Random.Range(0, obstacles.Length)], obstacleSpawner.transform.position + offset, obstacleSpawner.transform.rotation);
                 yield return new WaitForSeconds(Random.Range(minSeconds, maxSeconds));
-            }
+            // }
         }
     }
 }

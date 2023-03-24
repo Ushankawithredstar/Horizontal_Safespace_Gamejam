@@ -1,12 +1,19 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class OldEnemy : MonoBehaviour
 {
+
+    //
+    //
+    //  UNUSED.
+    //
+    //
+
     //Tags.
     private string player = "Player";
 
     [SerializeField] private int damage;
-    [SerializeField] private int speed;
+    [SerializeField] private float speed;
     [SerializeField] private int health;
 
     [SerializeField] private float destroyTime = 4.5f;
@@ -22,22 +29,22 @@ public class Enemy : MonoBehaviour
         transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
+    // public void TakeDamage(int damage)
+    // {
+    //     health -= damage;
 
-        if (health <= 0)
-        {
-            GameplayUIController.ScoreCount++;
-            Destroy(gameObject);
-        }
-    }
+    //     if (health <= 0)
+    //     {
+    //         // GameplayUIController.ScoreCount++;
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(player))
         {
-            PlayerManager.Health -= damage;
+            // PlayerHealthManager.Health -= damage;
             Destroy(gameObject);
         }
     }

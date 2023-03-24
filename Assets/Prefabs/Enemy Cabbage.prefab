@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2160448563525642427}
   - component: {fileID: 2160448563525642429}
   - component: {fileID: 6597514765545667523}
-  - component: {fileID: 2160448563525642430}
   - component: {fileID: 6597514765545667522}
   m_Layer: 0
   m_Name: Enemy Cabbage
@@ -135,21 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &2160448563525642430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160448563525642426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553cf3d4ec5d31b48a1486d4728bb626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  speed: 5
-  health: 1
 --- !u!95 &6597514765545667522
 Animator:
   serializedVersion: 5

@@ -20,7 +20,7 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     private void LateUpdate()
     {
-        if (player is null)
+        if (player == null)
             return;
 
         tempPos = transform.position;

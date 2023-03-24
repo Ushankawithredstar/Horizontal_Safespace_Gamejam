@@ -9,10 +9,7 @@ public class MainMenuUIController : MonoBehaviour
 
     private void Awake()
     {
-        Button playButton = this.playButton.GetComponent<Button>();
         playButton.onClick.AddListener(PlayGame);
-
-        Button quitButton = this.quitButton.GetComponent<Button>();
         quitButton.onClick.AddListener(QuitGame);
     }
 
