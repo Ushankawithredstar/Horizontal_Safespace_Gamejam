@@ -1,10 +1,11 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
     public int MaxHealth;
     public int Health { get; set; }
+
+    //Temporary solutior for the UI, delete later.
     public static int _Health;
 
     private void Update()

@@ -9,13 +9,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minDelaySec;
     [SerializeField] private float maxDelaySec;
 
-    [SerializeField] private float activationDelay;
+    [SerializeField] private float initialDelay;
 
     [SerializeField] private float[] yPos;
 
     public virtual void Start()
     {
-        StartCoroutine(SpawnEntities(activationDelay));
+        StartCoroutine(SpawnEntities(initialDelay));
     }
 
     public virtual IEnumerator SpawnEntities(float delay = 0f)

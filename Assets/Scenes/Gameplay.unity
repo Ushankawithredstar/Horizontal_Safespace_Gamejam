@@ -1127,7 +1127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   safespace: {fileID: 789337450}
-  disableTime: 4
+  waitTime: 4
+  collision: {fileID: 789337455}
 --- !u!114 &789337457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,8 +1434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c8d1249ab3bc94591caa8d29abf5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 4
-  safespace: {fileID: 789337450}
 --- !u!4 &1263778177
 Transform:
   m_ObjectHideFlags: 0

@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float maxHeight = 4.5f;
     [SerializeField] private float minHeight = -4.5f;
-    
-    // private float movementY;
 
     private PlayerInput playerInput;
 
@@ -20,13 +18,18 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        StayWithinBorders();
     }
 
     private void MovePlayer()
     {
         if (transform.position.y >= minHeight && transform.position.y <= maxHeight)
             transform.position += moveForce * Time.deltaTime * new Vector3(0f, playerInput.Vertical, 0f);
+    }
 
+    //Makes the player stay within the camera's reach.
+    private void StayWithinBorders()
+    {
         if (transform.position.y <= minHeight)
             transform.position = new Vector3(0f, minHeight, 0f);
         if (transform.position.y >= maxHeight)
