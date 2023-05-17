@@ -8,6 +8,11 @@ public class PlayerHealthManager : MonoBehaviour
     //Temporary solutior for the UI, delete later.
     public static int _Health;
 
+    private void Start()
+    {
+        Health = MaxHealth;
+    }
+
     private void Update()
     {
         _Health = Health;
